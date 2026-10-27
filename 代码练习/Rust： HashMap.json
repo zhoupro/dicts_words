@@ -1,0 +1,29 @@
+{
+  "name": "Rust: HashMap",
+  "desc": "Rust 集合类型HashMap常用方法",
+  "list": [
+    "HashMap::new()",
+    "HashMap::with_capacity()",
+    "HashMap::insert()",
+    "HashMap::get()",
+    "HashMap::remove()",
+    "HashMap::contains_key()",
+    "HashMap::len()",
+    "HashMap::is_empty()",
+    "HashMap::clear()",
+    "HashMap::iter()",
+    "HashMap::keys()",
+    "HashMap::values()",
+    "HashMap::into_iter()",
+    "HashMap::entry()",
+    "HashMap::clone()",
+    "HashMap::extend()",
+    "HashMap::retain()",
+    "HashMap::remove_entry()",
+    "HashMap::get_mut()",
+    "HashMap::values_mut()",
+    "HashMap::swap_remove()",
+    "HashMap::shrink_to_fit()",
+    "HashMap::capacity()"
+  ]
+}

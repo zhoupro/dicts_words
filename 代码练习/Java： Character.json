@@ -1,0 +1,14 @@
+{
+  "name": "Java: Character",
+  "desc": "JavaScript API 词典",
+  "list": [
+    "isLetter()",
+    "isDigit()",
+    "isWhitespace()",
+    "isUpperCase()",
+    "isLowerCase()",
+    "toUpperCase()",
+    "toLowerCase()",
+    "toString()"
+  ]
+}

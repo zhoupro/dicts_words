@@ -1,0 +1,17 @@
+{
+  "name": "Python: array",
+  "desc": "Python array API ",
+  "list": [
+    "append()",
+    "buffer_info()",
+    "byteswap()",
+    "count()",
+    "extend()",
+    "fromfile()",
+    "index()",
+    "insert()",
+    "pop()",
+    "remove()",
+    "reverse()"
+  ]
+}

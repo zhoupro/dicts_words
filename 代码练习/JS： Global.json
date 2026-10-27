@@ -1,0 +1,15 @@
+{
+  "name": "JS: Global",
+  "desc": "JavaScript API 词典",
+  "list": [
+    "eval()",
+    "isFinite()",
+    "isNaN()",
+    "parseFloat()",
+    "parseInt()",
+    "decodeURI()",
+    "decodeURIComponent()",
+    "encodeURI()",
+    "encodeURIComponent()"
+  ]
+}

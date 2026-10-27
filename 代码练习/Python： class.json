@@ -1,0 +1,19 @@
+{
+  "name": "Python: class",
+  "desc": "Python class API ",
+  "list": [
+    "__call__(self, args, kwargs)",
+    "__cmp__(self, other)",
+    "__del__(self)",
+    "__delattr__(self, name)",
+    "__getattr__(self, name)",
+    "__getattribute__(self, name)",
+    "__index__(self)",
+    "__init__(self, args)",
+    "__new__(cls)",
+    "__nonzero__(self)",
+    "__repr__(self)",
+    "__setattr__(self, name, attr)",
+    "__str__(self)"
+  ]
+}

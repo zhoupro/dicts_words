@@ -1,0 +1,30 @@
+{
+  "name": "Rust: String",
+  "desc": "Rust 标准库字符串类型常用方法",
+  "list": [
+    "String::new()",
+    "String::from()",
+    "String::as_str()",
+    "String::push()",
+    "String::push_str()",
+    "String::pop()",
+    "String::replace()",
+    "String::remove()",
+    "String::insert()",
+    "String::insert_str()",
+    "String::truncate()",
+    "String::len()",
+    "String::find()",
+    "String::clear()",
+    "String::to_string()",
+    "String::to_lowercase()",
+    "String::to_uppercase()",
+    "String::replace_range()",
+    "String::trim()",
+    "String::split()",
+    "String::retain()",
+    "String::replacen()",
+    "String::to_owned()",
+    "String::as_mut_str()"
+  ]
+}

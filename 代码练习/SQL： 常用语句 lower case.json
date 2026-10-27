@@ -1,0 +1,18 @@
+{
+  "name": "SQL: 常用语句 lower case",
+  "desc": "SQL 常用语句 小写",
+  "list": [
+    "alter table",
+    "commit",
+    "create index",
+    "create table",
+    "create view",
+    "delete",
+    "drop",
+    "insert",
+    "insert select",
+    "rollback",
+    "select",
+    "update"
+  ]
+}
