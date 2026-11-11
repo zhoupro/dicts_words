@@ -1,5 +1,5 @@
 {
-  "_readme": "人工纠错表（优先级最高，直接覆盖其它来源）。用于修正 WordNet 带来的噪声，例如虚词的词性过载。修改后运行 python3 tools/build_pos.py 重新生成 通用词汇/词性表.json。",
+  "_readme": "人工纠错表（优先级最高，直接覆盖其它来源）。用于修正 WordNet 带来的噪声，例如虚词的词性过载。修改后运行 python3 tools/build_pos.py 重新生成 tools/词性表.json。",
 
   "i": ["pron"],
   "a": ["art"],

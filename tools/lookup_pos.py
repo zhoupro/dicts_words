@@ -6,7 +6,7 @@
   python3 tools/lookup_pos.py book teacher "look after"
 
   # 查某个词表里属于某词性的词（-f 指定词表文件，-p 指定词性）
-  python3 tools/lookup_pos.py -f "课本/小学/人教版(新起点)/一年级/人教版(新起点)一年级上.json" -p v
+  python3 tools/lookup_pos.py -f "单词表/课本/小学/人教版(新起点)/一年级/人教版(新起点)一年级上.json" -p v
 
 词性标签：n 名词 / v 动词 / adj 形容词 / adv 副词 / prep 介词 / conj 连词 /
           pron 代词 / num 数词 / art 冠词 / det 限定词 / int 感叹词 / aux 助动词
@@ -18,7 +18,9 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-POS_TABLE = os.path.join(ROOT, "通用词汇", "词性表.json")
+TOOLS = os.path.join(ROOT, "tools")
+WORDS = os.path.join(ROOT, "单词表")
+POS_TABLE = os.path.join(TOOLS, "词性表.json")
 
 TAG_CN = {
     "n": "名词", "v": "动词", "adj": "形容词", "adv": "副词", "prep": "介词",
@@ -32,6 +34,17 @@ def load_pos():
         return json.load(f)["pos"]
 
 
+def resolve_file(path):
+    """相对路径按 仓库根目录 → 单词表/ 顺序解析"""
+    if os.path.isabs(path):
+        return path
+    for base in (ROOT, WORDS):
+        candidate = os.path.join(base, path)
+        if os.path.exists(candidate):
+            return candidate
+    return os.path.join(ROOT, path)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("words", nargs="*", help="要查询的单词")
@@ -42,7 +55,7 @@ def main():
     pos = load_pos()
 
     if args.file:
-        path = args.file if os.path.isabs(args.file) else os.path.join(ROOT, args.file)
+        path = resolve_file(args.file)
         with open(path, encoding="utf-8") as f:
             words = json.load(f).get("list", [])
         if args.pos:

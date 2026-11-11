@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""生成全局词性表 通用词汇/词性表.json
+"""生成全局词性表 tools/词性表.json
 
 词性来源（按优先级）：
   1. tools/pos_overrides.json   人工维护的补充/纠错（闭类词、专有名词、WordNet 未收录词）
@@ -23,11 +23,12 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOOLS = os.path.join(ROOT, "tools")
+WORDS = os.path.join(ROOT, "单词表")
 CACHE = os.path.join(TOOLS, "data", "oewn_pos.json")
 OVERRIDES = os.path.join(TOOLS, "pos_overrides.json")
 EXTRA = os.path.join(TOOLS, "pos_extra.json")
 FUNCTION_WORDS = os.path.join(TOOLS, "pos_function_words.json")
-OUT = os.path.join(ROOT, "通用词汇", "词性表.json")
+OUT = os.path.join(TOOLS, "词性表.json")
 MISSING = os.path.join(TOOLS, "pos_missing.txt")
 
 OEWN_URL = os.environ.get(
@@ -315,8 +316,8 @@ def tag_entry(entry, lex, overrides):
 def collect_entries():
     """扫描全库词条（保留原始写法）"""
     entries = collections.Counter()
-    for path in glob.glob(os.path.join(ROOT, "**", "*.json"), recursive=True):
-        if os.path.abspath(path) in (os.path.abspath(OUT),) or os.sep + "tools" + os.sep in path:
+    for path in glob.glob(os.path.join(WORDS, "**", "*.json"), recursive=True):
+        if os.path.abspath(path) == os.path.abspath(OUT):
             continue
         try:
             with open(path, encoding="utf-8") as f:

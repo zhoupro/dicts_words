@@ -3,9 +3,17 @@
 给全库词条补充词性标注。词表本身**不改动**，词性集中放在一个全局表里，
 避免同一个词在几十本教材里重复维护。
 
+仓库结构：
+
+```
+单词表/          所有词表（课本 / 考试 / 课外拓展 / 通用词汇）
+tools/           词性表与生成脚本
+  词性表.json      全局词性表（生成物，请勿手改）
+```
+
 ## 1. 数据格式
 
-`通用词汇/词性表.json`（生成物，请勿手改）：
+`tools/词性表.json`（生成物，请勿手改）：
 
 ```json
 {
@@ -29,7 +37,7 @@
 消费端查询：
 
 ```js
-const { pos } = require('./通用词汇/词性表.json');
+const { pos } = require('./tools/词性表.json');
 pos['book'];                        // ['n','v']
 pos['book'.toLowerCase()];          // 词条统一小写后查
 ```
@@ -38,7 +46,7 @@ pos['book'.toLowerCase()];          // 词条统一小写后查
 
 ```bash
 python3 tools/lookup_pos.py book teacher "look after"
-python3 tools/lookup_pos.py -f "课本/小学/人教版(新起点)/一年级/人教版(新起点)一年级上.json" -p v
+python3 tools/lookup_pos.py -f "单词表/课本/小学/人教版(新起点)/一年级/人教版(新起点)一年级上.json" -p v
 ```
 
 ## 2. 词性从哪来
@@ -59,7 +67,7 @@ python3 tools/lookup_pos.py -f "课本/小学/人教版(新起点)/一年级/人
 ## 3. 维护流程
 
 ```bash
-python3 tools/build_pos.py            # 生成 通用词汇/词性表.json
+python3 tools/build_pos.py            # 生成 tools/词性表.json
 python3 tools/build_pos.py --check    # 只看覆盖率报告，不写文件
 python3 tools/build_pos.py --refresh  # 重新下载 WordNet 并重建缓存
 ```
@@ -69,7 +77,7 @@ python3 tools/build_pos.py --refresh  # 重新下载 WordNet 并重建缓存
 
 ## 4. 覆盖情况
 
-- 全库唯一词条 41,587 条，标注 40,125 条（96.5%）
+- 全库唯一词条 41,585 条，标注 40,125 条（96.5%）
 - 未标注的 914 条是整句（如作文例句），不是单词，不做词性标注，明细见 `tools/pos_missing.txt`
 
 ## 5. 词库来源与许可
